@@ -1,0 +1,99 @@
+mutant name,mutant type,killed,tests that killed
+fim_0_negate.slx,?,0, 
+fim_0_offset.slx,?,0, 
+fim_0_stuck0.slx,?,0, 
+fim_10_delay.slx,?,0, 
+fim_10_invert.slx,?,0, 
+fim_10_negate.slx,?,0, 
+fim_10_noise.slx,?,0, 
+fim_10_offset.slx,?,0, 
+fim_11_delay.slx,?,0, 
+fim_11_negate.slx,?,0, 
+fim_11_noise.slx,?,0, 
+fim_11_offset.slx,?,1,", tc_1"
+fim_12_invert.slx,?,0, 
+fim_12_negate.slx,?,0, 
+fim_12_noise.slx,?,1,", tc_1"
+fim_12_offset.slx,?,0, 
+fim_12_stuck0.slx,?,0, 
+fim_13_delay.slx,?,0, 
+fim_13_invert.slx,?,0, 
+fim_13_negate.slx,?,1,", tc_1"
+fim_13_noise.slx,?,1,", tc_1"
+fim_13_offset.slx,?,1,", tc_1"
+fim_14_negate.slx,?,0, 
+fim_14_noise.slx,?,0, 
+fim_14_offset.slx,?,0, 
+fim_14_stuck0.slx,?,1,", tc_1"
+fim_15_invert.slx,?,1,", tc_1"
+fim_15_negate.slx,?,0, 
+fim_15_noise.slx,?,1,", tc_1"
+fim_15_offset.slx,?,0, 
+fim_15_stuck0.slx,?,0, 
+fim_16_delay.slx,?,0, 
+fim_16_invert.slx,?,1,", tc_1"
+fim_16_negate.slx,?,0, 
+fim_16_noise.slx,?,1,", tc_1"
+fim_16_offset.slx,?,0, 
+fim_16_stuck0.slx,?,0, 
+fim_17_invert.slx,?,0, 
+fim_17_negate.slx,?,1,", tc_1"
+fim_17_noise.slx,?,0, 
+fim_17_offset.slx,?,0, 
+fim_17_stuck0.slx,?,0, 
+fim_18_delay.slx,?,1,", tc_1"
+fim_18_negate.slx,?,1,", tc_1"
+fim_18_noise.slx,?,0, 
+fim_18_offset.slx,?,1,", tc_1"
+fim_18_stuck0.slx,?,0, 
+fim_19_delay.slx,?,1,", tc_1"
+fim_19_noise.slx,?,0, 
+fim_19_offset.slx,?,0, 
+fim_1_invert.slx,?,0, 
+fim_1_negate.slx,?,1,", tc_1"
+fim_1_noise.slx,?,0, 
+fim_1_offset.slx,?,1,", tc_1"
+fim_1_stuck0.slx,?,1,", tc_1"
+fim_20_delay.slx,?,0, 
+fim_20_invert.slx,?,0, 
+fim_20_negate.slx,?,1,", tc_1"
+fim_20_noise.slx,?,0, 
+fim_2_delay.slx,?,0, 
+fim_2_invert.slx,?,0, 
+fim_2_negate.slx,?,1,", tc_1"
+fim_2_noise.slx,?,1,", tc_1"
+fim_2_offset.slx,?,1,", tc_1"
+fim_3_delay.slx,?,0, 
+fim_3_negate.slx,?,0, 
+fim_3_noise.slx,?,1,", tc_1"
+fim_3_offset.slx,?,0, 
+fim_3_stuck0.slx,?,0, 
+fim_4_negate.slx,?,0, 
+fim_4_noise.slx,?,0, 
+fim_4_offset.slx,?,1,", tc_1"
+fim_4_stuck0.slx,?,1,", tc_1"
+fim_5_delay.slx,?,0, 
+fim_5_invert.slx,?,1,", tc_1"
+fim_5_negate.slx,?,0, 
+fim_5_offset.slx,?,0, 
+fim_5_stuck0.slx,?,1,", tc_1"
+fim_6_delay.slx,?,0, 
+fim_6_invert.slx,?,1,", tc_1"
+fim_6_negate.slx,?,1,", tc_1"
+fim_6_noise.slx,?,1,", tc_1"
+fim_6_offset.slx,?,0, 
+fim_7_negate.slx,?,0, 
+fim_7_noise.slx,?,0, 
+fim_7_offset.slx,?,0, 
+fim_7_stuck0.slx,?,0, 
+fim_8_delay.slx,?,0, 
+fim_8_invert.slx,?,0, 
+fim_8_negate.slx,?,1,", tc_1"
+fim_8_noise.slx,?,0, 
+fim_8_offset.slx,?,1,", tc_1"
+fim_8_stuck0.slx,?,0, 
+fim_9_delay.slx,?,1,", tc_1"
+fim_9_negate.slx,?,1,", tc_1"
+fim_9_noise.slx,?,0, 
+fim_9_offset.slx,?,0, 
+fim_9_stuck0.slx,?,0, 
