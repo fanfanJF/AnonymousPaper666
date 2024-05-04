@@ -1,2 +1,0 @@
-model, constants_thresholds, fault_injector_folder, fault_list
-cav_benchmark/AutotransModel.slx, ModelConstantsThresholds_autotransmod04.mat, Autotrans_fault_injector, Fault_injection_list_Autotrans.xlsx
