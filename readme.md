@@ -12,7 +12,6 @@ Recently, large language models (LLMs) have been used to automate and improve so
 ## Folder Structure
 
 ```bash
-.
 ├── data
 │   ├── pretrain # data for pretraining on CodeBERT
 │   ├── saved_model # save the pretrained model as SimuBERT

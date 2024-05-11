@@ -374,7 +374,6 @@ for model in model_list:
                 fim_fit = {key: len(tc2mut4[key]) for key in fim_fit_diff}
                 total_fim_fit_len += sum(list(fim_fit.values()))
 
-
             if tc2mut5 is None or tc2mut6 is None:
                 pass
             else:
@@ -409,24 +408,94 @@ for k, v in total_req_res.items():
 print('req:')
 print(latex_table_req)
 
-
-def plot(bert_only,fim_only, inter, type):
-
-    sizes = [bert_only,fim_only, inter]
-    labels = ['TSbert_only', 'TSFIM_only', 'TS_overlap']
-
-    # 绘制饼状图
-    plt.pie(sizes, autopct='%1.1f%%', startangle=140)
-    plt.axis('equal')  # 确保饼状图是圆的
-    plt.title(f'Test case overlap by {type}')
-    plt.legend(labels, loc="upper left")
-    plt.savefig(f'{type}_test_cases.png')
-    plt.close()
-
-
-output_overlap = plot(all_TS_bert_output, all_TS_FIM_output, all_TS_inter_output, 'output')
-fit_overlap = plot(all_TS_bert_fit, all_TS_FIM_fit, all_TS_inter_fit, 'fitness')
-req_overlap = plot(all_TS_bert_req, all_TS_FIM_req, all_TS_inter_req, 'requirement')
+# plot separately
+# def plot(bert_only,fim_only, inter, type):
 #
+#     sizes = [bert_only,fim_only, inter]
+#     labels = ['TSbert_only', 'TSFIM_only', 'TS_overlap']
+#
+#     # 绘制饼状图
+#     colors = ['#5CB3FF', '#FFA500', '#90EE90']
+#     plt.pie(sizes, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140,colors=colors)
+#     plt.axis('equal')  # 确保饼状图是圆的
+#     # plt.title(f'Test case overlap by {type}')
+#     plt.legend(labels, loc="upper left")
+#     plt.savefig(f'{type}_test_cases.png')
+#     plt.close()
+#
+#
+# output_overlap = plot(all_TS_bert_output, all_TS_FIM_output, all_TS_inter_output, 'output')
+# fit_overlap = plot(all_TS_bert_fit, all_TS_FIM_fit, all_TS_inter_fit, 'fitness')
+# req_overlap = plot(all_TS_bert_req, all_TS_FIM_req, all_TS_inter_req, 'requirement')
 
 
+
+# plot output and req
+# def plot(bert_only, fim_only, inter, caption, ax):
+#     sizes = [bert_only, fim_only, inter]
+#     colors = ['#5CB3FF', '#FFA500', '#90EE90']
+#     # 绘制饼状图到指定的Axes对象ax
+#     wedges, texts, autotexts = ax.pie(
+#         sizes, autopct='%1.1f%%', startangle=140, textprops={'fontsize': 18}, colors=colors
+#     )
+#     for autotext in autotexts:
+#         if '32.0' in autotext.get_text() or '38.7' in autotext.get_text():
+#             autotext.set_verticalalignment('top')
+#         # 或者使用下面这行代码，手动将其向下移动
+#             x, y = autotext.get_position()
+#             autotext.set_position((x, y - 0.1))
+#     ax.axis('equal')  # 确保饼状图是圆的
+#     ax.set_title(caption, loc='left', fontsize=16)  # 设置子图标题靠左
+#
+# # 创建一个figure和两个子图的Axes对象
+# fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
+#
+# # 绘制两个饼图到这两个Axes对象上
+# plot(all_TS_bert_output, all_TS_FIM_output, all_TS_inter_output, '(a) Classical mutation testing', ax1)
+# plot(all_TS_bert_req, all_TS_FIM_req, all_TS_inter_req, '(b) Requirement-based mutation testing', ax2)
+#
+# # 添加共享的图例
+# fig.legend(['SimuBERT only', 'FIM only', 'Both SimuBERT and FIM'], loc='upper right', bbox_to_anchor=(1, 0.89), fontsize=12)
+#
+# # 保存整个figure为图片
+# plt.savefig('test_cases_comparison.png')
+# plt.close()
+
+
+import matplotlib.pyplot as plt
+
+# 修改代码：将三个饼状图绘制到一个图里并共享一个图例
+def plot_combined(bert_output, fim_output, inter_output, bert_fit, fim_fit, inter_fit, bert_req, fim_req, inter_req):
+    # 生成数据
+    sizes1 = [bert_output, fim_output, inter_output]
+    sizes2 = [bert_fit, fim_fit, inter_fit]
+    sizes3 = [bert_req, fim_req, inter_req]
+
+    labels = ['SimuBERT only', 'FIM only', 'Both SimuBERT and FIM']
+    colors = ['#5CB3FF', '#FFA500', '#90EE90']
+
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+
+    # 绘制饼状图1
+    axs[0].pie(sizes1, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[0].axis('equal')  # 确保饼状图是圆的
+    axs[0].set_title('Classical mutation testing')
+
+    # 绘制饼状图2
+    axs[1].pie(sizes2, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[1].axis('equal')
+    axs[1].set_title('Fitness-based mutation testing')
+
+    # 绘制饼状图3
+    axs[2].pie(sizes3, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[2].axis('equal')
+    axs[2].set_title('Requirement-based mutation testing')
+
+    # 添加共享图例
+    fig.legend(labels, loc='upper center', ncol=3)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.savefig('overlap_test_cases')
+    plt.show()
+
+# 示例数据
+plot_combined(30, 40, 30, 35, 25, 40, 20, 50, 30)

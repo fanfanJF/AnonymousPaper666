@@ -105,23 +105,59 @@ for model in ['tustin','twotanks','fsm', 'ATCS']:
 
 
 
-def plot(bert_only,fim_only, inter, type):
-
-    sizes = [bert_only,fim_only, inter]
-    labels = ['TSbert_only_killed_muts', 'TSFIM_only_killed_muts', 'TSbertFIM_both_killed_muts']
-
-    # 绘制饼状图
-    plt.pie(sizes, autopct='%1.1f%%', startangle=140)
-    plt.axis('equal')  # 确保饼状图是圆的
-    plt.title(f'Test case overlap by {type}')
-    plt.legend(labels, loc="upper left")
-    plt.savefig(f'{type}_muts.png')
-    plt.close()
-
-plot(bert_output_only_muts,FIM_output_only_muts,output_inter_muts,'output')
-plot(bert_fit_only_muts,FIM_fit_only_muts,fit_inter_muts,'fitness')
-plot(bert_req_only_muts,FIM_req_only_muts,req_inter_muts,'requirement')
-
-
+# def plot(bert_only,fim_only, inter, type):
+#
+#     sizes = [bert_only,fim_only, inter]
+#     labels = ['TSbert_only_killed_muts', 'TSFIM_only_killed_muts', 'TSbertFIM_both_killed_muts']
+#
+#     colors = ['#5CB3FF', '#FFA500', '#90EE90']
+#     plt.pie(sizes, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140,colors=colors)
+#     plt.axis('equal')  # 确保饼状图是圆的
+#     plt.legend(labels, loc="upper left")
+#     plt.savefig(f'{type}_muts.png')
+#     plt.close()
+#
+# plot(bert_output_only_muts,FIM_output_only_muts,output_inter_muts,'output')
+# plot(bert_fit_only_muts,FIM_fit_only_muts,fit_inter_muts,'fitness')
+# plot(bert_req_only_muts,FIM_req_only_muts,req_inter_muts,'requirement')
+#
 
 
+import matplotlib.pyplot as plt
+
+def plot_combined(bert_output, fim_output, inter_output, bert_fit, fim_fit, inter_fit, bert_req, fim_req, inter_req):
+    # 生成数据
+    sizes1 = [bert_output, fim_output, inter_output]
+    sizes2 = [bert_fit, fim_fit, inter_fit]
+    sizes3 = [bert_req, fim_req, inter_req]
+
+    labels = ['SimuBERT only', 'FIM only', 'Both SimuBERT and FIM']
+    colors = ['#5CB3FF', '#FFA500', '#90EE90']
+
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))  # 调整为需要的尺寸
+
+    # 绘制饼状图1
+    axs[0].pie(sizes1, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[0].axis('equal')
+    axs[0].set_title('Mutants by classical mutation testing')
+
+    # 绘制饼状图2
+    axs[1].pie(sizes2, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[1].axis('equal')
+    axs[1].set_title('Mutants by fitness-based mutation testing')
+
+    # 绘制饼状图3
+    axs[2].pie(sizes3, autopct='%1.1f%%', textprops={'fontsize': 18}, startangle=140, colors=colors)
+    axs[2].axis('equal')
+    axs[2].set_title('Mutants by requirement-based mutation testing')
+
+    # 添加共享图例
+    fig.legend(labels, loc='upper center', ncol=3)
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.savefig(f'overlap_muts.png')
+    plt.show()
+
+# 示例数据
+plot_combined(bert_output_only_muts, FIM_output_only_muts, output_inter_muts,
+              bert_fit_only_muts, FIM_fit_only_muts, fit_inter_muts,
+              bert_req_only_muts, FIM_req_only_muts, req_inter_muts)
