@@ -39,7 +39,8 @@ The supplementary materials for the paper containing additional results ...
 
 ## All data and models
 
-Due to size limit, we put all data, models and outputs  in [this link]([zxz](https://drive.google.com/file/d/179SQPOguBYUbkRM76NkgXqVqBQp5-KKI/view?usp=sharing)).
+Due to size limit, we put all data, models and outputs  in [this link]([https://github.com/](https://drive.google.com/file/d/179SQPOguBYUbkRM76NkgXqVqBQp5-KKI/view)).
+.
 
 ## Getting Started
 
