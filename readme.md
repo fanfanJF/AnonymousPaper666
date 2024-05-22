@@ -3,7 +3,7 @@
 This repository contains the code and datasets used in the paper "Mutation Testing of Simulink Models using Large Language
 Models". 
 
-![Example Image](src/workflow.pdf)
+![Example Image](src/workflow.png)
 
 ## Abstract
 
